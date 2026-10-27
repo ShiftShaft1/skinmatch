@@ -1,0 +1,1 @@
+{"type":"module","private":true,"scripts":{"test":"node test/recommend.test.mjs && node test/ingest.test.mjs && node test/catalog.test.mjs && node test/api.test.mjs && node test/breakit.test.mjs"}}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkinMatch for skincare brands</title>
+<meta name="description" content="Paste your Shopify store. SkinMatch turns your own catalog into a selfie skin check, matching every product to skin concerns from the ingredients on its label.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fieldnote.css">
+</head>
+<body class="merchant">
+<header class="top">
+  <a class="wordmark" href="merchant.html"><span class="logo">SkinMatch</span> <span class="logo-sub">For skincare brands</span></a>
+  <a class="bag-btn" href="./">Shopper view</a>
+</header>
+
+<main>
+  <section class="intro m-intro">
+    <div class="card">
+      <div class="stripe" aria-hidden="true"></div>
+      <div class="card-body">
+        <h1>Your catalog, as a skin check.</h1>
+        <p class="lede">Paste your Shopify store. SkinMatch reads your public catalog and matches each product to skin concerns from the ingredients named in your listings. You review every match before shoppers see it.</p>
+        <form class="store-form" id="storeForm">
+          <label class="visually-hidden" for="store">Store domain</label>
+          <input id="store" placeholder="yourstore.com" autocomplete="off" inputmode="url">
+          <div class="actions">
+            <button class="btn primary" type="submit">Build my skin check</button>
+            <button class="btn ghost" type="button" id="demoBtn">Use the demo store</button>
+          </div>
+        </form>
+        <p class="note">Reads only your public <code>/products.json</code>. Lips, body, hair, makeup, kits and travel sizes are left out.</p>
+        <p class="error" id="err" role="alert" hidden></p>
+      </div>
+    </div>
+    <figure class="plates static" aria-hidden="true">
+      <img class="plate is-on" src="assets/plates/glycyrrhiza-glabra-taub121b.jpg" alt="" width="1068" height="982">
+    </figure>
+  </section>
+
+  <section id="out" class="report" hidden>
+    <article class="card sheet">
+      <div class="stripe" aria-hidden="true"></div>
+      <header class="sheet-head">
+        <h2>Your shelf, read</h2>
+        <div class="summary" id="summary"></div>
+      </header>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Use</th><th scope="col">Product</th><th scope="col">Step</th><th scope="col">Matched concerns, with the ingredient from your listing</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p class="small sheet-foot">Matching uses ingredient names in your titles, tags and descriptions, and skips phrases like "free of" or "use with". Products with no listed actives are kept as basics but never claimed for a concern.</p>
+    </article>
+
+    <section class="routine-wrap golive" aria-labelledby="goliveH">
+      <div class="routine-intro">
+        <h2 id="goliveH">Go live</h2>
+        <p class="lede">Your review is built into the install line, so copy it again after any change.</p>
+      </div>
+      <div class="slip">
+        <h3>Add before &lt;/body&gt; in your theme</h3>
+        <pre class="embed" id="embed"></pre>
+        <a class="slip-total" id="preview" target="_blank" rel="noopener"><span>See it as a shopper</span><span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>SkinMatch uses the Perfect Corp. YouCam AI Skin Analysis API. Cosmetic guidance only, not medical advice.</p>
+  <p class="credits">Botanical plate: <i>Glycyrrhiza glabra</i>, Taubert (1891), public domain via Wikimedia Commons.</p>
+</footer>
+<script type="module" src="merchant.js"></script>
+</body>
+</html>

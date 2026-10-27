@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop · Fieldnote Skin</title>
+<meta name="description" content="A fictional demo storefront for Fieldnote Skin, showing the SkinMatch one-line install.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fieldnote.css">
+<style>
+  .shop-hero { display: grid; grid-template-columns: 1fr 1fr; gap: var(--m); padding: 0 var(--m); }
+  .shop-hero .card-body h1 { font-size: clamp(2.75rem, 1.4rem + 3.8vw, 5rem); max-width: 10ch; }
+  .shop-hero .plates { min-height: 360px; }
+  .shop { max-width: 1240px; margin: 80px auto 0; padding: 0 24px; }
+  .shop h2 { font-size: var(--step-head); margin-bottom: 28px; }
+  .grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--m); }
+  .grid li { background: var(--paper); color: var(--paper-ink); padding: 20px 18px 18px; display: grid; gap: 6px; }
+  .grid .pack { width: 100%; max-width: 140px; height: auto; margin: 0 auto 10px; }
+  .grid strong { font-size: var(--step-body); line-height: 1.2; }
+  .grid span { font-size: var(--step-small); color: var(--paper-muted); }
+  @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } .shop-hero { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="wordmark" href="shop.html"><span class="logo">Fieldnote</span> <span class="logo-sub">Skin</span></a>
+  <span class="bag-btn" aria-hidden="true">Bag <b>0</b></span>
+</header>
+<main>
+  <section class="shop-hero">
+    <div class="card">
+      <div class="stripe" aria-hidden="true"></div>
+      <div class="card-body">
+        <h1>Small-batch skin care.</h1>
+        <p class="lede">Ten products, each with its key ingredient printed on the front.</p>
+      </div>
+    </div>
+    <figure class="plates static" aria-hidden="true">
+      <img class="plate is-on" src="../assets/plates/citrus-limonum-kohler.jpg" alt="" width="1100" height="1382">
+    </figure>
+  </section>
+  <section class="shop" aria-labelledby="shopH">
+    <h2 id="shopH">The shelf</h2>
+    <ul class="grid" id="grid"></ul>
+  </section>
+</main>
+<footer class="foot">
+  <p>Fieldnote Skin is a fictional demo store. The "Find my routine" button is the SkinMatch one-line install.</p>
+  <p class="credits">Botanical plate: <i>Citrus limonum</i>, Köhler's Medizinal-Pflanzen (1887), public domain via Wikimedia Commons.</p>
+</footer>
+<script type="module">
+  import { ingestStore } from '../ingest.js';
+  import { productArt } from '../product-art.js';
+  const { products } = ingestStore(await fetch('products.json').then(r => r.json()));
+  document.getElementById('grid').innerHTML = products.map(p =>
+    `<li>${productArt(p)}<strong>${p.name.replace(/[<>&]/g, '')}</strong><span>${p.kind} · $${p.price}</span></li>`).join('');
+</script>
+<!-- The SkinMatch install: one line -->
+<script src="../embed.js" data-store="demo" async></script>
+</body>
+</html>

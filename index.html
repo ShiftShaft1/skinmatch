@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skin check · Fieldnote Skin</title>
+<meta name="description" content="One selfie. AI reads ten areas of your skin, then writes your morning and evening routine from the store's own shelf, with the ingredient behind every pick. Powered by the YouCam AI Skin Analysis API.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fieldnote.css">
+</head>
+<body>
+<header class="top">
+  <a class="wordmark" href="./" aria-label="Fieldnote Skin, skin check home"><span class="logo">Fieldnote</span> <span class="logo-sub">Skin check</span></a>
+  <button class="bag-btn" id="bagBtn" aria-label="Open bag">Bag <b id="bagCount">0</b></button>
+</header>
+
+<main>
+  <!-- 1. Intro: the printed card beside the plate -->
+  <section class="view intro" id="v-intro">
+    <figure class="plates" aria-hidden="true">
+      <img class="plate is-on" src="assets/plates/avena-sativa-illustration-01.jpg" alt="" width="1100" height="1590">
+      <img class="plate" src="assets/plates/citrus-limonum-kohler.jpg" alt="" width="1100" height="1382" loading="lazy">
+      <img class="plate" src="assets/plates/coffea-arabica-kohler-s-medizinal-pflanzen-189.jpg" alt="" width="1100" height="1518" loading="lazy">
+      <img class="plate" src="assets/plates/the-american-flora-vol-1-1855-pl.jpg" alt="" width="1100" height="1596" loading="lazy">
+    </figure>
+    <div class="card">
+      <div class="stripe" aria-hidden="true"></div>
+      <div class="card-body">
+        <p class="card-brand">Fieldnote Skin</p>
+        <h1>Your skin, on one page.</h1>
+        <p class="lede">Take one selfie. AI reads ten areas of your skin, then writes your morning and evening routine from our shelf, and names the ingredient behind every pick.</p>
+        <div class="actions">
+          <label class="btn primary" for="photo">Take a selfie</label>
+          <input id="photo" type="file" accept="image/jpeg,image/png" capture="user" hidden>
+          <button class="btn ghost" id="sampleBtn" type="button">Use a sample face</button>
+        </div>
+        <ul class="tips" aria-label="For a good reading">
+          <li>Face a window or a lamp</li><li>No glasses</li><li>Hair off your forehead</li><li>Face fills the frame</li>
+        </ul>
+        <p class="note">Your photo goes to the YouCam AI Skin Analysis API to be read and is not stored by this site. Cosmetic guidance only, not medical advice.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Reading -->
+  <section class="view wait" id="v-wait" hidden>
+    <div class="card wait-card">
+      <div class="scan"><img id="waitImg" alt="Your photo"><div class="beam"></div></div>
+      <div>
+        <h2>Reading your skin</h2>
+        <p class="lede" id="waitText">Uploading your photo…</p>
+        <p class="small">Usually about five seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. The field note -->
+  <section class="view report" id="v-result" hidden>
+    <article class="card sheet">
+      <div class="stripe" aria-hidden="true"></div>
+      <header class="sheet-head">
+        <div>
+          <p class="card-brand" id="resultTag">Your skin field note</p>
+          <h2>Focus on <span id="focusText"></span></h2>
+        </div>
+        <div class="score">
+          <b id="overall"></b>
+          <p class="small">Skin score: the average of the ten areas below, out of 100. Higher is better.</p>
+        </div>
+      </header>
+
+      <div class="sheet-grid">
+        <figure class="photo">
+          <img id="resImg" alt="Your photo">
+          <img id="maskImg" class="mask" alt="" hidden>
+          <figcaption id="maskCap">Tap an area to see where it shows</figcaption>
+        </figure>
+        <div class="observations">
+          <h3>What we saw</h3>
+          <ul class="scores" id="scores"></ul>
+          <p class="small" id="scoreNote">Your three focus areas set the routine below.</p>
+        </div>
+      </div>
+    </article>
+
+    <section class="routine-wrap" aria-labelledby="routineH">
+      <div class="routine-intro">
+        <h2 id="routineH">Your routine</h2>
+        <p class="lede">Picked only from our shelf. Each product is matched to what we saw by an ingredient on its own label.</p>
+        <div class="shelf" id="shelf"></div>
+        <p class="small" id="missing"></p>
+      </div>
+      <div class="slip">
+        <h3>Morning</h3>
+        <ol id="am"></ol>
+        <h3>Evening</h3>
+        <ol id="pm"></ol>
+        <button class="slip-total" id="addAll" type="button"><span id="routineCount"></span><span>Add to bag <strong id="routineTotal"></strong></span></button>
+      </div>
+    </section>
+    <button class="btn ghost restart" id="restart" type="button">Try another photo</button>
+  </section>
+</main>
+
+<aside class="drawer" id="drawer" hidden>
+  <div class="drawer-in card">
+    <div class="stripe" aria-hidden="true"></div>
+    <div class="drawer-body">
+      <h3>Your bag</h3>
+      <ul id="bagList"></ul>
+      <p class="total"><span>Total</span> <strong id="bagTotal">$0</strong></p>
+      <button class="btn primary wide" id="checkout" type="button">Checkout</button>
+      <p class="small">Demo store: checkout is turned off.</p>
+      <button class="btn ghost wide" id="closeBag" type="button">Keep shopping</button>
+    </div>
+  </div>
+</aside>
+
+<footer class="foot">
+  <p>Fieldnote Skin is a fictional demo brand. Skin analysis by the Perfect Corp. YouCam AI Skin Analysis API.</p>
+  <p class="credits">Botanical plates, public domain via Wikimedia Commons: <i>Avena sativa</i>; <i>Citrus limonum</i> and <i>Coffea arabica</i> from Köhler's Medizinal-Pflanzen (1887); Aloe from The American Flora (1855).</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

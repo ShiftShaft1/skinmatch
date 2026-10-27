@@ -1,0 +1,87 @@
+{
+  "illustrative": false,
+  "captured": "2026-10-25T08:34:27.082Z",
+  "note": "Real YouCam AI Skin Analysis output for assets/sample-face.jpg (an AI-generated fictional person).",
+  "output": [
+    {
+      "type": "texture",
+      "ui_score": 94,
+      "raw_score": 96.28143906593323,
+      "mask_urls": [
+        "assets/masks/texture.png"
+      ]
+    },
+    {
+      "type": "oiliness",
+      "ui_score": 71,
+      "raw_score": 58.71985626220703,
+      "mask_urls": [
+        "assets/masks/oiliness.png"
+      ]
+    },
+    {
+      "type": "pore",
+      "ui_score": 78,
+      "raw_score": 74.3333215713501,
+      "mask_urls": [
+        "assets/masks/pore.png"
+      ]
+    },
+    {
+      "type": "redness",
+      "ui_score": 84,
+      "raw_score": 88.36854553222656,
+      "mask_urls": [
+        "assets/masks/redness.png"
+      ]
+    },
+    {
+      "type": "radiance",
+      "ui_score": 84,
+      "raw_score": 88.4734570980072,
+      "mask_urls": [
+        "assets/masks/radiance.png"
+      ]
+    },
+    {
+      "type": "age_spot",
+      "ui_score": 92,
+      "raw_score": 96.24584197998047,
+      "mask_urls": [
+        "assets/masks/age_spot.png"
+      ]
+    },
+    {
+      "type": "dark_circle_v2",
+      "ui_score": 76,
+      "raw_score": 79.3708324432373,
+      "mask_urls": [
+        "assets/masks/dark_circle_v2.png"
+      ]
+    },
+    {
+      "type": "wrinkle",
+      "ui_score": 89,
+      "raw_score": 94.67300772666931,
+      "mask_urls": [
+        "assets/masks/wrinkle.png"
+      ]
+    },
+    {
+      "type": "acne",
+      "ui_score": 96,
+      "raw_score": 97.86391,
+      "mask_urls": [
+        "assets/masks/acne.png"
+      ]
+    },
+    {
+      "type": "moisture",
+      "ui_score": 76,
+      "raw_score": 66.77457690238953,
+      "mask_urls": [
+        "assets/masks/moisture.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Inter, Segoe UI, sans-serif">
+  <rect width="1280" height="720" fill="#151614"/>
+  <text x="80" y="110" fill="#f1eee8" font-size="44" font-family="Fraunces, Georgia, serif" font-weight="600">How SkinMatch works</text>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8cc5ad"/></marker></defs>
+  <g font-size="20" fill="#f1eee8">
+    <rect x="80" y="190" width="300" height="150" rx="18" fill="#1d1f1c" stroke="#2e312d" stroke-width="2"/>
+    <text x="110" y="240" font-weight="600" font-size="24">Shopper's browser</text>
+    <text x="110" y="278" fill="#a39d93">Selfie, resize, consent</text>
+    <text x="110" y="308" fill="#a39d93">Scores, masks, routine</text>
+
+    <rect x="490" y="190" width="300" height="150" rx="18" fill="#1d1f1c" stroke="#8cc5ad" stroke-width="2"/>
+    <text x="520" y="240" font-weight="600" font-size="24">SkinMatch API</text>
+    <text x="520" y="278" fill="#a39d93">Key stays server-side</text>
+    <text x="520" y="308" fill="#a39d93">Rate limits, input checks</text>
+
+    <rect x="900" y="190" width="300" height="150" rx="18" fill="#1d1f1c" stroke="#2e312d" stroke-width="2"/>
+    <text x="930" y="240" font-weight="600" font-size="24">YouCam API</text>
+    <text x="930" y="278" fill="#a39d93">AI Skin Analysis V2</text>
+    <text x="930" y="308" fill="#a39d93">10 SD concerns + masks</text>
+
+    <rect x="490" y="440" width="300" height="150" rx="18" fill="#1d1f1c" stroke="#2e312d" stroke-width="2"/>
+    <text x="520" y="490" font-weight="600" font-size="24">Store catalog</text>
+    <text x="520" y="528" fill="#a39d93">Public products.json</text>
+    <text x="520" y="558" fill="#a39d93">SSRF-guarded fetch</text>
+
+    <rect x="80" y="440" width="300" height="150" rx="18" fill="#1d1f1c" stroke="#2e312d" stroke-width="2"/>
+    <text x="110" y="490" font-weight="600" font-size="24">Ingredient matcher</text>
+    <text x="110" y="528" fill="#a39d93">18 ingredient families</text>
+    <text x="110" y="558" fill="#a39d93">Evidence on every pick</text>
+  </g>
+  <g stroke="#8cc5ad" stroke-width="3" fill="none" marker-end="url(#a)">
+    <path d="M380 255 H485"/><path d="M790 255 H895"/>
+    <path d="M895 285 H795"/><path d="M485 285 H385"/>
+    <path d="M640 345 V435"/><path d="M485 515 H385"/><path d="M230 435 V345"/>
+  </g>
+  <text x="80" y="660" fill="#a39d93" font-size="18">Cosmetic guidance only, not medical advice. Photos are not stored by SkinMatch.</text>
+</svg>
